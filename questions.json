@@ -1,116 +1,310 @@
 {
     "debutant": {
-      "Grammaire de base": [
-        {
-          "question": "Quelle est la terminaison correcte pour le verbe 'parler' à la 1ère personne du singulier au présent?",
-          "options": [
-            {
-              "text": "e",
-              "correct": true,
-              "explanation": "À la 1ère personne du singulier, les verbes du 1er groupe (comme 'parler') se terminent par 'e'. Ex: je parle."
-            },
-            {
-              "text": "es",
-              "correct": false,
-              "explanation": "'es' est la terminaison pour la 2ème personne du singulier (tu parles)."
-            },
-            {
-              "text": "ons",
-              "correct": false,
-              "explanation": "'ons' est la terminaison pour la 1ère personne du pluriel (nous parlons)."
-            },
-            {
-              "text": "ez",
-              "correct": false,
-              "explanation": "'ez' est la terminaison pour la 2ème personne du pluriel (vous parlez)."
-            }
-          ],
-          "category": "Conjugaison"
-        },
-        {
-          "question": "Quel article défini faut-il utiliser avec 'école'?",
-          "options": [
-            {
-              "text": "le",
-              "correct": false,
-              "explanation": "'le' est l'article masculin singulier, mais 'école' est féminin."
-            },
-            {
-              "text": "la",
-              "correct": true,
-              "explanation": "'école' est un nom féminin, donc on utilise 'la'."
-            },
-            {
-              "text": "les",
-              "correct": false,
-              "explanation": "'les' est l'article pluriel, mais ici on parle d'une école en général."
-            },
-            {
-              "text": "l'",
-              "correct": false,
-              "explanation": "On utilise 'l'' devant un nom commençant par une voyelle ou un h muet, ce qui n'est pas le cas ici."
-            }
-          ],
-          "category": "Articles"
-        }
-      ],
-      "Vocabulaire quotidien": [
-        {
-          "question": "Comment dit-on 'apple' en français?",
-          "options": [
-            {
-              "text": "banane",
-              "correct": false,
-              "explanation": "Une banane est 'banana' en anglais."
-            },
-            {
-              "text": "pomme",
-              "correct": true,
-              "explanation": "Correct! 'Apple' se traduit par 'pomme' en français."
-            },
-            {
-              "text": "orange",
-              "correct": false,
-              "explanation": "Une orange est 'orange' en anglais."
-            },
-            {
-              "text": "raisin",
-              "correct": false,
-              "explanation": "Le raisin est 'grape' en anglais."
-            }
-          ],
-          "category": "Fruits"
-        }
-      ],
-      "Phrases utiles": [
-        {
-          "question": "Comment dit-on 'How are you?' en français?",
-          "options": [
-            {
-              "text": "Qui êtes-vous?",
-              "correct": false,
-              "explanation": "Cela signifie 'Who are you?'"
-            },
-            {
-              "text": "Comment allez-vous?",
-              "correct": true,
-              "explanation": "C'est la traduction correcte de 'How are you?'"
-            },
-            {
-              "text": "Quel âge avez-vous?",
-              "correct": false,
-              "explanation": "Cela signifie 'How old are you?'"
-            },
-            {
-              "text": "Où habitez-vous?",
-              "correct": false,
-              "explanation": "Cela signifie 'Where do you live?'"
-            }
-          ],
-          "category": "Expressions"
-        }
-      ]
-    },
+    "Niveau 0 - Bases": [
+      {
+        "question": "Comment dit-on 'Bonjour, je m'appelle Pierre' en anglais?",
+        "options": [
+          {"text": "Hello, my name is Pierre", "correct": true, "explanation": "Traduction exacte de la phrase française."},
+          {"text": "Goodbye, I am Pierre", "correct": false},
+          {"text": "Hi, Pierre calls me", "correct": false},
+          {"text": "Hello, I call Pierre", "correct": false}
+        ],
+        "category": "Se présenter"
+      },
+      {
+        "question": "Quelle phrase permet de demander le nom de quelqu'un?",
+        "options": [
+          {"text": "Comment tu t'appelles ?", "correct": true, "explanation": "Formule correcte pour demander son nom."},
+          {"text": "Tu es comment ?", "correct": false},
+          {"text": "Quel âge as-tu ?", "correct": false},
+          {"text": "Tu habites où ?", "correct": false}
+        ],
+        "category": "S'informer sur l'identité"
+      },
+      {
+        "question": "Comment dit-on '37' en français?",
+        "options": [
+          {"text": "Trente-sept", "correct": true, "explanation": "Formation correcte du nombre : trente (30) + sept (7)."},
+          {"text": "Vingt-dix-sept", "correct": false},
+          {"text": "Trois sept", "correct": false},
+          {"text": "Sept trente", "correct": false}
+        ],
+        "category": "Compter jusqu'à 69"
+      },
+      {
+        "question": "Quelle est la forme féminine de 'italien'?",
+        "options": [
+          {"text": "Italienne", "correct": true, "explanation": "On ajoute un -e pour former le féminin."},
+          {"text": "Italiene", "correct": false},
+          {"text": "Italienne", "correct": false},
+          {"text": "Italienne", "correct": false}
+        ],
+        "category": "Adjectifs de nationalité"
+      },
+      {
+        "question": "Conjuguez 'être' à la 1ère personne du singulier:",
+        "options": [
+          {"text": "Je suis", "correct": true, "explanation": "Conjugaison correcte du verbe être."},
+          {"text": "Je es", "correct": false},
+          {"text": "Je est", "correct": false},
+          {"text": "Je être", "correct": false}
+        ],
+        "category": "Verbe être"
+      },
+      {
+        "question": "Comment dit-on 'le livre' au pluriel?",
+        "options": [
+          {"text": "Les livres", "correct": true, "explanation": "On ajoute un -s pour former le pluriel."},
+          {"text": "Le livres", "correct": false},
+          {"text": "Les livre", "correct": false},
+          {"text": "La livres", "correct": false}
+        ],
+        "category": "Articles définis"
+      },
+      {
+        "question": "Quel article utilise-t-on avec 'Allemagne'?",
+        "options": [
+          {"text": "l'", "correct": false, "explanation": "Utilisé devant les pays féminins commençant par une voyelle."},
+          {"text": "la", "correct": false},
+          {"text": "le", "correct": false},
+          {"text": "en", "correct": true, "explanation": "Pour les pays féminins, on utilise 'en' sans article."}
+        ],
+        "category": "Genre des pays"
+      },
+      {
+        "question": "Comment demande-t-on à un professeur 'Pouvez-vous répéter?'",
+        "options": [
+          {"text": "Vous pouvez répéter ?", "correct": true, "explanation": "Formule polie en classe."},
+          {"text": "Tu répètes !", "correct": false},
+          {"text": "Répétez-vous !", "correct": false},
+          {"text": "Je ne comprends pas du tout", "correct": false}
+        ],
+        "category": "Communiquer en classe"
+      },
+      {
+        "question": "Quelle phrase identifie correctement l'espagnol?",
+        "options": [
+          {"text": "C'est une langue parlée en Espagne", "correct": true, "explanation": "Description correcte."},
+          {"text": "C'est la langue de l'Italie", "correct": false},
+          {"text": "On le parle au Brésil", "correct": false},
+          {"text": "C'est comme l'anglais", "correct": false}
+        ],
+        "category": "Identifier une langue"
+      },
+      {
+        "question": "Comment dit-on 'Je suis français' au féminin?",
+        "options": [
+          {"text": "Je suis française", "correct": true, "explanation": "Accord correct au féminin."},
+          {"text": "Je suis français", "correct": false},
+          {"text": "Je suis françaises", "correct": false},
+          {"text": "Je suis françaine", "correct": false}
+        ],
+        "category": "Adjectifs de nationalité"
+      },
+      {
+        "question": "Quelle est la conjugaison correcte de 's'appeler' à la 3ème personne du singulier?",
+        "options": [
+          {"text": "Il s'appelle", "correct": true, "explanation": "Conjugaison correcte avec le pronom réfléchi."},
+          {"text": "Il appelle", "correct": false},
+          {"text": "Il s'appel", "correct": false},
+          {"text": "Il est appelle", "correct": false}
+        ],
+        "category": "Verbe s'appeler"
+      },
+      {
+        "question": "Comment dit-on '51' en français?",
+        "options": [
+          {"text": "Cinquante et un", "correct": true, "explanation": "Formation correcte avec 'et' pour 1, 11, 21, 31, etc."},
+          {"text": "Cinquante-un", "correct": false},
+          {"text": "Cinquante un", "correct": false},
+          {"text": "Cinquante et une", "correct": false}
+        ],
+        "category": "Compter jusqu'à 69"
+      },
+      {
+        "question": "Quelle question permet de connaître la nationalité de quelqu'un?",
+        "options": [
+          {"text": "Tu es de quelle nationalité ?", "correct": true, "explanation": "Question standard pour demander la nationalité."},
+          {"text": "Quel âge as-tu ?", "correct": false},
+          {"text": "Comment ça va ?", "correct": false},
+          {"text": "Tu habites où ?", "correct": false}
+        ],
+        "category": "S'informer sur l'identité"
+      },
+      {
+        "question": "Quel article utilise-t-on devant 'étudiant'?",
+        "options": [
+          {"text": "un", "correct": false},
+          {"text": "le", "correct": false},
+          {"text": "l'", "correct": false},
+          {"text": "Toutes ces réponses", "correct": true, "explanation": "Dépend du contexte : un étudiant (indéfini), le étudiant (défini), l'étudiant (devant voyelle)"}
+        ],
+        "category": "Articles"
+      },
+      {
+        "question": "Comment dit-on 'Je ne comprends pas' poliment en classe?",
+        "options": [
+          {"text": "Je ne comprends pas, pouvez-vous expliquer ?", "correct": true, "explanation": "Formulation polie et claire."},
+          {"text": "C'est difficile !", "correct": false},
+          {"text": "Je comprends rien", "correct": false},
+          {"text": "Encore une fois", "correct": false}
+        ],
+        "category": "Communiquer en classe"
+      }
+    ],
+    "Niveau 1 - Communication de base": [
+      {
+        "question": "Quelle expression utiliser pour saler quelqu'un à 10h du matin ?",
+        "options": [
+          {"text": "Bonjour", "correct": true, "explanation": "'Bonjour' est la salutation standard pour la journée."},
+          {"text": "Bonsoir", "correct": false},
+          {"text": "Salut", "correct": false},
+          {"text": "Bonne nuit", "correct": false}
+        ],
+        "category": "Saluer"
+      },
+      {
+        "question": "Comment conjugue-t-on 'avoir' à la 2ème personne du singulier ?",
+        "options": [
+          {"text": "Tu as", "correct": true, "explanation": "Conjugaison correcte du verbe 'avoir'."},
+          {"text": "Tu a", "correct": false},
+          {"text": "Tu avez", "correct": false},
+          {"text": "Tu ais", "correct": false}
+        ],
+        "category": "Verbe avoir"
+      },
+      {
+        "question": "Quelle phrase utilise correctement 'mon' ou 'ma' ?",
+        "options": [
+          {"text": "Ma mère et mon père", "correct": true, "explanation": "'Mère' est féminin (ma), 'père' est masculin (mon)."},
+          {"text": "Mon mère et ma père", "correct": false},
+          {"text": "Ma mère et ma père", "correct": false},
+          {"text": "Mon mère et mon père", "correct": false}
+        ],
+        "category": "Adjectifs possessifs"
+      },
+      {
+        "question": "Comment dit-on 'Je ne parle pas italien' correctement ?",
+        "options": [
+          {"text": "Je ne parle pas italien", "correct": true, "explanation": "Structure correcte de la négation."},
+          {"text": "Je parle pas italien", "correct": false},
+          {"text": "Je ne parle italien pas", "correct": false},
+          {"text": "Je ne pas parle italien", "correct": false}
+        ],
+        "category": "Négation"
+      },
+      {
+        "question": "Comment demander poliment à un commerçant le prix d'un croissant ?",
+        "options": [
+          {"text": "Bonjour, c'est combien le croissant ?", "correct": true, "explanation": "Formule polie et correcte."},
+          {"text": "Donne-moi le prix", "correct": false},
+          {"text": "Combien ?", "correct": false},
+          {"text": "Le croissant coûte ?", "correct": false}
+        ],
+        "category": "Demander le prix"
+      },
+      {
+        "question": "Quelle phrase utilise correctement un article indéfini ?",
+        "options": [
+          {"text": "C'est un livre intéressant", "correct": true, "explanation": "'Un' est l'article indéfini masculin."},
+          {"text": "C'est le livre intéressant", "correct": false},
+          {"text": "C'est livre intéressant", "correct": false},
+          {"text": "C'est des livre intéressant", "correct": false}
+        ],
+        "category": "Articles indéfinis"
+      },
+      {
+        "question": "Comment demande-t-on 'Quel est ton film préféré ?' en utilisant l'adjectif interrogatif ?",
+        "options": [
+          {"text": "Quel est ton film préféré ?", "correct": true, "explanation": "Utilisation correcte de 'quel'."},
+          {"text": "Que est ton film préféré ?", "correct": false},
+          {"text": "Quelle est ton film préféré ?", "correct": false},
+          {"text": "Quels est ton film préféré ?", "correct": false}
+        ],
+        "category": "Adjectif interrogatif"
+      },
+      {
+        "question": "Comment dit-on 'Je viens du Canada' pour une femme ?",
+        "options": [
+          {"text": "Je viens du Canada", "correct": true, "explanation": "La préposition ne change pas avec le genre."},
+          {"text": "Je viens de la Canada", "correct": false},
+          {"text": "Je viens de Canada", "correct": false},
+          {"text": "Je viens des Canada", "correct": false}
+        ],
+        "category": "Prépositions + pays"
+      },
+      {
+        "question": "Comment conjugue-t-on 'parler' à la 1ère personne du pluriel ?",
+        "options": [
+          {"text": "Nous parlons", "correct": true, "explanation": "Terminaison correcte pour les verbes en -er."},
+          {"text": "Nous parle", "correct": false},
+          {"text": "Nous parlions", "correct": false},
+          {"text": "Nous parlez", "correct": false}
+        ],
+        "category": "Verbes en -er"
+      },
+      {
+        "question": "Quelle phrase utilise correctement 'être' et 'avoir' ?",
+        "options": [
+          {"text": "Je suis français et j'ai 25 ans", "correct": true, "explanation": "Utilisation correcte des deux verbes."},
+          {"text": "Je ai français et je suis 25 ans", "correct": false},
+          {"text": "Je suis français et je suis 25 ans", "correct": false},
+          {"text": "J'ai français et j'ai 25 ans", "correct": false}
+        ],
+        "category": "Verbes être/avoir"
+      },
+      {
+        "question": "Comment dit-on 'Au revoir' de manière informelle entre amis ?",
+        "options": [
+          {"text": "Salut !", "correct": true, "explanation": "Forme informelle pour dire au revoir."},
+          {"text": "Bonjour", "correct": false},
+          {"text": "Bonne journée", "correct": false},
+          {"text": "À demain", "correct": false}
+        ],
+        "category": "Prendre congé"
+      },
+      {
+        "question": "Comment demander 'Quel est votre métier ?' poliment ?",
+        "options": [
+          {"text": "Quel est votre profession ?", "correct": true, "explanation": "Formulation polie et correcte."},
+          {"text": "Tu fais quoi ?", "correct": false},
+          {"text": "Quel travail ?", "correct": false},
+          {"text": "Vous travaillez quoi ?", "correct": false}
+        ],
+        "category": "Informations personnelles (2)"
+      },
+      {
+        "question": "Comment dit-on 'J'aime voyager et lire' pour parler de ses passions ?",
+        "options": [
+          {"text": "J'aime voyager et lire", "correct": true, "explanation": "Structure correcte avec verbe 'aimer'."},
+          {"text": "Je voyage et lis", "correct": false},
+          {"text": "Mon passion est voyager et lire", "correct": false},
+          {"text": "J'ai des passions sont voyager et lire", "correct": false}
+        ],
+        "category": "Passions"
+      },
+      {
+        "question": "Quelle phrase utilise correctement la négation avec 'avoir' ?",
+        "options": [
+          {"text": "Je n'ai pas de frères", "correct": true, "explanation": "Structure correcte de la négation avec 'avoir'."},
+          {"text": "Je ne ai pas de frères", "correct": false},
+          {"text": "Je n'ai pas des frères", "correct": false},
+          {"text": "Je ne pas ai de frères", "correct": false}
+        ],
+        "category": "Négation + avoir"
+      },
+      {
+        "question": "Comment dit-on 'Mon rêve est de vivre au Japon' ?",
+        "options": [
+          {"text": "Mon rêve est de vivre au Japon", "correct": true, "explanation": "Structure correcte avec préposition 'au'."},
+          {"text": "Mon rêve est vivre en Japon", "correct": false},
+          {"text": "Je rêve de au Japon", "correct": false},
+          {"text": "Mon rêve c'est le Japon", "correct": false}
+        ],
+        "category": "Rêves"
+      }
+    ]
+  },
     "elementaire": {
       "Passé composé": [
         {
