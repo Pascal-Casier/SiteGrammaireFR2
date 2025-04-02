@@ -2,12 +2,12 @@
     "debutant": {
     "Niveau 0 - Bases": [
       {
-        "question": "Comment dit-on 'Bonjour, je m'appelle Pierre' en anglais?",
+        "question": "Quelle phrase permet de se présenter ?",
         "options": [
-          {"text": "Hello, my name is Pierre", "correct": true, "explanation": "Traduction exacte de la phrase française."},
-          {"text": "Goodbye, I am Pierre", "correct": false},
-          {"text": "Hi, Pierre calls me", "correct": false},
-          {"text": "Hello, I call Pierre", "correct": false}
+          {"text": "Bonjour, je m'appelle Pierre", "correct": true, "explanation": "s'appeller pour donner son nom."},
+          {"text": "Au revoir, je suis Pierre", "correct": false},
+          {"text": "à bientôt Pierre", "correct": false},
+          {"text": "Ça va Pierre", "correct": false}
         ],
         "category": "Se présenter"
       },
@@ -25,19 +25,19 @@
         "question": "Comment dit-on '37' en français?",
         "options": [
           {"text": "Trente-sept", "correct": true, "explanation": "Formation correcte du nombre : trente (30) + sept (7)."},
-          {"text": "Vingt-dix-sept", "correct": false},
-          {"text": "Trois sept", "correct": false},
+          {"text": "trente et sept", "correct": false},
+          {"text": "Trente sept", "correct": false},
           {"text": "Sept trente", "correct": false}
         ],
-        "category": "Compter jusqu'à 69"
+        "category": "Compter"
       },
       {
         "question": "Quelle est la forme féminine de 'italien'?",
         "options": [
           {"text": "Italienne", "correct": true, "explanation": "On ajoute un -e pour former le féminin."},
           {"text": "Italiene", "correct": false},
-          {"text": "Italienne", "correct": false},
-          {"text": "Italienne", "correct": false}
+          {"text": "Italiennne", "correct": false},
+          {"text": "Italenne", "correct": false}
         ],
         "category": "Adjectifs de nationalité"
       },
@@ -64,15 +64,15 @@
       {
         "question": "Quel article utilise-t-on avec 'Allemagne'?",
         "options": [
-          {"text": "l'", "correct": false, "explanation": "Utilisé devant les pays féminins commençant par une voyelle."},
+          {"text": "en", "correct": false, "explanation": "Utilisé devant les pays féminins / commençant par une voyelle."},
           {"text": "la", "correct": false},
           {"text": "le", "correct": false},
-          {"text": "en", "correct": true, "explanation": "Pour les pays féminins, on utilise 'en' sans article."}
+          {"text": "l'", "correct": true, "explanation": " L' pour les pays commençant par une voyelle."}
         ],
         "category": "Genre des pays"
       },
       {
-        "question": "Comment demande-t-on à un professeur 'Pouvez-vous répéter?'",
+        "question": "Comment demande-t-on à un professeur de répéter ?'",
         "options": [
           {"text": "Vous pouvez répéter ?", "correct": true, "explanation": "Formule polie en classe."},
           {"text": "Tu répètes !", "correct": false},
@@ -82,17 +82,17 @@
         "category": "Communiquer en classe"
       },
       {
-        "question": "Quelle phrase identifie correctement l'espagnol?",
+        "question": "Quelle phrase est correcte ?",
         "options": [
-          {"text": "C'est une langue parlée en Espagne", "correct": true, "explanation": "Description correcte."},
-          {"text": "C'est la langue de l'Italie", "correct": false},
-          {"text": "On le parle au Brésil", "correct": false},
-          {"text": "C'est comme l'anglais", "correct": false}
+          {"text": "Il parle espagnol", "correct": true, "explanation": "Parler une langue."},
+          {"text": "C'est la langue italien", "correct": false},
+          {"text": "On parle Brésil", "correct": false},
+          {"text": "C'est moi anglais", "correct": false}
         ],
         "category": "Identifier une langue"
       },
       {
-        "question": "Comment dit-on 'Je suis français' au féminin?",
+        "question": "Quelle phrase est correcte ? (c'est une femme qui parle)",
         "options": [
           {"text": "Je suis française", "correct": true, "explanation": "Accord correct au féminin."},
           {"text": "Je suis français", "correct": false},
@@ -119,10 +119,10 @@
           {"text": "Cinquante un", "correct": false},
           {"text": "Cinquante et une", "correct": false}
         ],
-        "category": "Compter jusqu'à 69"
+        "category": "Compter"
       },
       {
-        "question": "Quelle question permet de connaître la nationalité de quelqu'un?",
+        "question": "Quelle question permet de connaître la nationalité de quelqu'un ?",
         "options": [
           {"text": "Tu es de quelle nationalité ?", "correct": true, "explanation": "Question standard pour demander la nationalité."},
           {"text": "Quel âge as-tu ?", "correct": false},
@@ -132,19 +132,19 @@
         "category": "S'informer sur l'identité"
       },
       {
-        "question": "Quel article utilise-t-on devant 'étudiant'?",
+        "question": "Quel article défini est utilisé devant 'étudiant' ?",
         "options": [
           {"text": "un", "correct": false},
           {"text": "le", "correct": false},
-          {"text": "l'", "correct": false},
-          {"text": "Toutes ces réponses", "correct": true, "explanation": "Dépend du contexte : un étudiant (indéfini), le étudiant (défini), l'étudiant (devant voyelle)"}
+          {"text": "la", "correct": false},
+          {"text": "l'", "correct": true, "explanation": "l'étudiant (devant voyelle)"}
         ],
         "category": "Articles"
       },
       {
-        "question": "Comment dit-on 'Je ne comprends pas' poliment en classe?",
+        "question": "Comment exprimer l'incompréhension polie en classe?",
         "options": [
-          {"text": "Je ne comprends pas, pouvez-vous expliquer ?", "correct": true, "explanation": "Formulation polie et claire."},
+          {"text": "Je ne comprends pas.", "correct": true, "explanation": "Formulation claire et polie."},
           {"text": "C'est difficile !", "correct": false},
           {"text": "Je comprends rien", "correct": false},
           {"text": "Encore une fois", "correct": false}
@@ -154,17 +154,17 @@
     ],
     "Niveau 1 - Communication de base": [
       {
-        "question": "Quelle expression utiliser pour saler quelqu'un à 10h du matin ?",
+        "question": "Quelle expression utiliser pour saluer quelqu'un à 10h du matin ?",
         "options": [
           {"text": "Bonjour", "correct": true, "explanation": "'Bonjour' est la salutation standard pour la journée."},
           {"text": "Bonsoir", "correct": false},
-          {"text": "Salut", "correct": false},
+          {"text": "Bon week-end", "correct": false},
           {"text": "Bonne nuit", "correct": false}
         ],
         "category": "Saluer"
       },
       {
-        "question": "Comment conjugue-t-on 'avoir' à la 2ème personne du singulier ?",
+        "question": "Comment conjugue-t-on 'avoir' à la 2ème personne du singulier (TU) ?",
         "options": [
           {"text": "Tu as", "correct": true, "explanation": "Conjugaison correcte du verbe 'avoir'."},
           {"text": "Tu a", "correct": false},
@@ -184,7 +184,7 @@
         "category": "Adjectifs possessifs"
       },
       {
-        "question": "Comment dit-on 'Je ne parle pas italien' correctement ?",
+        "question": "Quelle phrase utilise correctement la négation ?",
         "options": [
           {"text": "Je ne parle pas italien", "correct": true, "explanation": "Structure correcte de la négation."},
           {"text": "Je parle pas italien", "correct": false},
@@ -214,7 +214,7 @@
         "category": "Articles indéfinis"
       },
       {
-        "question": "Comment demande-t-on 'Quel est ton film préféré ?' en utilisant l'adjectif interrogatif ?",
+        "question": "Indiquez la phrase correcte.",
         "options": [
           {"text": "Quel est ton film préféré ?", "correct": true, "explanation": "Utilisation correcte de 'quel'."},
           {"text": "Que est ton film préféré ?", "correct": false},
