@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apprendre le Français - Quiz Interactif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .level-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .folder-card:hover {
+            transform: scale(1.03);
+        }
+        .option:hover {
+            background-color: #f0f9ff;
+        }
+        .correct {
+            background-color: #d1fae5 !important;
+            border-color: #10b981 !important;
+        }
+        .incorrect {
+            background-color: #fee2e2 !important;
+            border-color: #ef4444 !important;
+        }
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+        .explanation {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .explanation.active {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold">Français Facile</h1>
+                <div class="flex items-center space-x-4">
+                    <span id="user-score" class="bg-blue-800 px-3 py-1 rounded-full font-semibold">0 pts</span>
+                    <button id="reset-btn" class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded text-sm transition">Réinitialiser</button>
+                </div>
+            </div>
+            <p class="mt-2 opacity-90">Apprenez le français de manière ludique et interactive</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Level Selection (Initial View) -->
+        <section id="level-selection" class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Choisissez votre niveau</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Débutant -->
+                <div class="level-card bg-white rounded-xl shadow-md overflow-hidden transition cursor-pointer" data-level="debutant">
+                    <div class="bg-blue-100 p-6">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-blue-800">Débutant</h3>
+                            <i class="fas fa-seedling text-blue-600 text-2xl"></i>
+                        </div>
+                        <p class="text-blue-600 mt-2">Découverte du français</p>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <ul class="text-gray-600 space-y-1">
+                            <li><i class="fas fa-check-circle text-blue-500 mr-2"></i> Vocabulaire de base</li>
+                            <li><i class="fas fa-check-circle text-blue-500 mr-2"></i> Phrases simples</li>
+                            <li><i class="fas fa-check-circle text-blue-500 mr-2"></i> Conjugaison au présent</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Élémentaire -->
+                <div class="level-card bg-white rounded-xl shadow-md overflow-hidden transition cursor-pointer" data-level="elementaire">
+                    <div class="bg-green-100 p-6">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-green-800">Élémentaire</h3>
+                            <i class="fas fa-leaf text-green-600 text-2xl"></i>
+                        </div>
+                        <p class="text-green-600 mt-2">Bases consolidées</p>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <ul class="text-gray-600 space-y-1">
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Temps du passé</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Phrases complexes</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Vocabulaire étendu</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Intermédiaire -->
+                <div class="level-card bg-white rounded-xl shadow-md overflow-hidden transition cursor-pointer" data-level="intermediaire">
+                    <div class="bg-yellow-100 p-6">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-yellow-800">Intermédiaire</h3>
+                            <i class="fas fa-tree text-yellow-600 text-2xl"></i>
+                        </div>
+                        <p class="text-yellow-600 mt-2">Communication fluide</p>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <ul class="text-gray-600 space-y-1">
+                            <li><i class="fas fa-check-circle text-yellow-500 mr-2"></i> Subjonctif</li>
+                            <li><i class="fas fa-check-circle text-yellow-500 mr-2"></i> Expressions idiomatiques</li>
+                            <li><i class="fas fa-check-circle text-yellow-500 mr-2"></i> Discours indirect</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Avancé -->
+                <div class="level-card bg-white rounded-xl shadow-md overflow-hidden transition cursor-pointer" data-level="avance">
+                    <div class="bg-purple-100 p-6">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-purple-800">Avancé</h3>
+                            <i class="fas fa-graduation-cap text-purple-600 text-2xl"></i>
+                        </div>
+                        <p class="text-purple-600 mt-2">Maîtrise de la langue</p>
+                    </div>
+                    <div class="p-4 bg-white">
+                        <ul class="text-gray-600 space-y-1">
+                            <li><i class="fas fa-check-circle text-purple-500 mr-2"></i> Littérature</li>
+                            <li><i class="fas fa-check-circle text-purple-500 mr-2"></i> Nuances linguistiques</li>
+                            <li><i class="fas fa-check-circle text-purple-500 mr-2"></i> Style soutenu</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Folder Selection (Hidden Initially) -->
+        <section id="folder-selection" class="hidden mb-12">
+            <div class="flex items-center mb-6">
+                <button id="back-to-levels" class="mr-4 text-blue-600 hover:text-blue-800">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2 class="text-2xl font-bold text-gray-800" id="current-level-title"></h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="folders-container">
+                <!-- Folders will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Quiz Section (Hidden Initially) -->
+        <section id="quiz-section" class="hidden">
+            <div class="flex items-center mb-6">
+                <button id="back-to-folders" class="mr-4 text-blue-600 hover:text-blue-800">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2 class="text-2xl font-bold text-gray-800" id="current-folder-title"></h2>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="mb-6 bg-gray-200 rounded-full h-4">
+                <div id="quiz-progress" class="progress-bar bg-blue-600 h-4 rounded-full" style="width: 0%"></div>
+            </div>
+
+            <!-- Question Container -->
+            <div id="question-container" class="bg-white rounded-xl shadow-md p-6 mb-6">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-semibold text-gray-800" id="question-number">Question 1/8</h3>
+                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium" id="question-category">Grammaire</span>
+                </div>
+                <p class="text-lg mb-6" id="question-text">Chargement de la question...</p>
+                
+                <!-- Options Container -->
+                <div class="space-y-3" id="options-container">
+                    <!-- Options will be inserted here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Next Button -->
+            <button id="next-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                Suivant <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </section>
+
+        <!-- Results Section (Hidden Initially) -->
+        <section id="results-section" class="hidden">
+            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Résultats du quiz</h2>
+                    <div class="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium" id="results-folder-title">Dossier: Grammaire de base</div>
+                </div>
+
+                <!-- Score Summary -->
+                <div class="flex flex-col items-center mb-8">
+                    <div class="relative w-40 h-40 mb-4">
+                        <svg class="w-full h-full" viewBox="0 0 100 100">
+                            <circle class="text-gray-200" stroke-width="10" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50" />
+                            <circle id="score-circle" class="text-blue-600" stroke-width="10" stroke-linecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50" stroke-dasharray="251.2" stroke-dashoffset="251.2" />
+                        </svg>
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                            <span id="score-percentage" class="text-3xl font-bold">0%</span>
+                        </div>
+                    </div>
+                    <p class="text-xl font-semibold" id="score-text">0/8 réponses correctes</p>
+                </div>
+
+                <!-- Mistakes Section -->
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Explications des erreurs</h3>
+                    <div id="mistakes-container">
+                        <!-- Mistakes will be inserted here by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+                    <button id="retry-quiz" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition">
+                        <i class="fas fa-redo mr-2"></i> Réessayer
+                    </button>
+                    <button id="new-folder" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition">
+                        <i class="fas fa-folder-open mr-2"></i> Nouveau dossier
+                    </button>
+                    <button id="new-level" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-lg transition">
+                        <i class="fas fa-layer-group mr-2"></i> Nouveau niveau
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">Français Facile</h3>
+                    <p class="text-gray-400">Apprenez le français de manière interactive</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400 text-sm">
+                <p>© 2023 Français Facile. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Database of questions for each level and folder
+        const quizDatabase = {
+            debutant: {
+                "Grammaire de base": [
+                    {
+                        question: "Quelle est la terminaison correcte pour le verbe 'parler' à la 1ère personne du singulier au présent?",
+                        options: [
+                            { text: "e", correct: true, explanation: "À la 1ère personne du singulier, les verbes du 1er groupe (comme 'parler') se terminent par 'e'. Ex: je parle." },
+                            { text: "es", correct: false, explanation: "'es' est la terminaison pour la 2ème personne du singulier (tu parles)." },
+                            { text: "ons", correct: false, explanation: "'ons' est la terminaison pour la 1ère personne du pluriel (nous parlons)." },
+                            { text: "ez", correct: false, explanation: "'ez' est la terminaison pour la 2ème personne du pluriel (vous parlez)." }
+                        ],
+                        category: "Conjugaison"
+                    },
+                    {
+                        question: "Quel article défini faut-il utiliser avec 'école'?",
+                        options: [
+                            { text: "le", correct: false, explanation: "'le' est l'article masculin singulier, mais 'école' est féminin." },
+                            { text: "la", correct: true, explanation: "'école' est un nom féminin, donc on utilise 'la'." },
+                            { text: "les", correct: false, explanation: "'les' est l'article pluriel, mais ici on parle d'une école en général." },
+                            { text: "l'", correct: false, explanation: "On utilise 'l'' devant un nom commençant par une voyelle ou un h muet, ce qui n'est pas le cas ici." }
+                        ],
+                        category: "Articles"
+                    },
+                    {
+                        question: "Quelle phrase est correcte?",
+                        options: [
+                            { text: "Je vais au supermarché.", correct: true, explanation: "C'est la construction correcte avec 'aller à + lieu'." },
+                            { text: "Je vais dans supermarché.", correct: false, explanation: "On utilise 'dans' pour l'intérieur d'un lieu, pas pour la destination." },
+                            { text: "Je vais sur supermarché.", correct: false, explanation: "'sur' indique une position au-dessus, pas une destination." },
+                            { text: "Je vais à le supermarché.", correct: false, explanation: "Devant un nom masculin commençant par une consonne, 'à + le' devient 'au'." }
+                        ],
+                        category: "Prépositions"
+                    },
+                    {
+                        question: "Comment dit-on 'my book' en français?",
+                        options: [
+                            { text: "mon livre", correct: true, explanation: "'mon' est l'adjectif possessif masculin singulier pour la 1ère personne." },
+                            { text: "ma livre", correct: false, explanation: "Bien que 'livre' soit masculin, on ne peut pas utiliser 'ma'." },
+                            { text: "mes livre", correct: false, explanation: "'mes' est le pluriel, mais 'livre' est singulier ici." },
+                            { text: "me livre", correct: false, explanation: "'me' est un pronom complément, pas un adjectif possessif." }
+                        ],
+                        category: "Adjectifs possessifs"
+                    },
+                    {
+                        question: "Quel est le pluriel de 'journal'?",
+                        options: [
+                            { text: "journals", correct: false, explanation: "En français, on ne rajoute pas simplement un 's' comme en anglais." },
+                            { text: "journaux", correct: true, explanation: "Les noms en '-al' forment souvent leur pluriel en '-aux'." },
+                            { text: "journales", correct: false, explanation: "Cette terminaison n'existe pas en français." },
+                            { text: "journaus", correct: false, explanation: "L'orthographe correcte est 'journaux'." }
+                        ],
+                        category: "Pluriels"
+                    },
+                    {
+                        question: "Quelle phrase utilise correctement la négation?",
+                        options: [
+                            { text: "Je ne aime pas le café.", correct: false, explanation: "Il manque le 'n'' avant le verbe commençant par une voyelle." },
+                            { text: "Je n'aime pas le café.", correct: true, explanation: "La négation correcte est 'ne...pas' avec élision devant voyelle." },
+                            { text: "Je ne pas aime le café.", correct: false, explanation: "'Pas' doit être placé après le verbe." },
+                            { text: "Je n'aime le café pas.", correct: false, explanation: "'Pas' doit être placé immédiatement après le verbe." }
+                        ],
+                        category: "Négation"
+                    },
+                    {
+                        question: "Comment pose-t-on la question 'Vous parlez français?' en utilisant l'inversion?",
+                        options: [
+                            { text: "Parlez-vous français?", correct: true, explanation: "L'inversion sujet-verbe est une forme correcte d'interrogation." },
+                            { text: "Vous parlez français?", correct: false, explanation: "C'est correct à l'oral, mais pas une inversion formelle." },
+                            { text: "Est-ce que vous parlez français?", correct: false, explanation: "Correct, mais n'utilise pas l'inversion." },
+                            { text: "Vous parlez-t-il français?", correct: false, explanation: "Mélange incorrect de formes interrogatives." }
+                        ],
+                        category: "Interrogation"
+                    },
+                    {
+                        question: "Quel est le féminin de 'petit'?",
+                        options: [
+                            { text: "petite", correct: true, explanation: "On ajoute un 'e' pour former le féminin des adjectifs terminés par une consonne." },
+                            { text: "petitte", correct: false, explanation: "On n'ajoute pas de 't' supplémentaire." },
+                            { text: "petites", correct: false, explanation: "C'est le féminin pluriel, pas le singulier." },
+                            { text: "petit", correct: false, explanation: "La forme masculine ne change pas au féminin." }
+                        ],
+                        category: "Accord"
+                    }
+                ],
+                "Vocabulaire quotidien": [
+                    {
+                        question: "Comment dit-on 'apple' en français?",
+                        options: [
+                            { text: "banane", correct: false },
+                            { text: "pomme", correct: true },
+                            { text: "orange", correct: false },
+                            { text: "raisin", correct: false }
+                        ],
+                        category: "Fruits"
+                    },
+                    // 7 more questions...
+                ],
+                "Phrases utiles": [
+                    // 8 questions...
+                ],
+                "Nombres et temps": [
+                    // 8 questions...
+                ],
+                "Pronoms personnels": [
+                    // 8 questions...
+                ],
+                "Adjectifs courants": [
+                    // 8 questions...
+                ],
+                "Verbes fréquents": [
+                    // 8 questions...
+                ],
+                "Culture française": [
+                    // 8 questions...
+                ]
+            },
+            elementaire: {
+                "Passé composé": [
+                    // 8 questions...
+                ],
+                "Imparfait": [
+                    // 8 questions...
+                ],
+                "Futur simple": [
+                    // 8 questions...
+                ],
+                "Pronoms compléments": [
+                    // 8 questions...
+                ],
+                "Comparatifs": [
+                    // 8 questions...
+                ],
+                "Vocabulaire avancé": [
+                    // 8 questions...
+                ],
+                "Expressions courantes": [
+                    // 8 questions...
+                ],
+                "Lecture": [
+                    // 8 questions...
+                ]
+            },
+            intermediaire: {
+                "Subjonctif": [
+                    // 8 questions...
+                ],
+                "Conditionnel": [
+                    // 8 questions...
+                ],
+                "Discours indirect": [
+                    // 8 questions...
+                ],
+                "Pronoms relatifs": [
+                    // 8 questions...
+                ],
+                "Conjonctions": [
+                    // 8 questions...
+                ],
+                "Idiomes": [
+                    // 8 questions...
+                ],
+                "Littérature": [
+                    // 8 questions...
+                ],
+                "Rédaction": [
+                    // 8 questions...
+                ]
+            },
+            avance: {
+                "Concordance des temps": [
+                    // 8 questions...
+                ],
+                "Stylistique": [
+                    // 8 questions...
+                ],
+                "Littérature classique": [
+                    // 8 questions...
+                ],
+                "Philosophie": [
+                    // 8 questions...
+                ],
+                "Histoire": [
+                    // 8 questions...
+                ],
+                "Art": [
+                    // 8 questions...
+                ],
+                "Débats": [
+                    // 8 questions...
+                ],
+                "Traduction": [
+                    // 8 questions...
+                ]
+            }
+        };
+
+        // Fill in the rest of the questions for all folders (simplified for this example)
+        for (const level in quizDatabase) {
+            for (const folder in quizDatabase[level]) {
+                if (folder !== "Grammaire de base") {
+                    for (let i = 0; i < 8; i++) {
+                        quizDatabase[level][folder].push({
+                            question: `Question ${i+1} pour ${folder} (${level})`,
+                            options: [
+                                { text: "Option 1", correct: i % 4 === 0 },
+                                { text: "Option 2", correct: i % 4 === 1 },
+                                { text: "Option 3", correct: i % 4 === 2 },
+                                { text: "Option 4", correct: i % 4 === 3 }
+                            ],
+                            category: folder
+                        });
+                    }
+                }
+            }
+        }
+
+        // App State
+        const state = {
+            currentLevel: null,
+            currentFolder: null,
+            currentQuestions: [],
+            currentQuestionIndex: 0,
+            score: 0,
+            mistakes: [],
+            userScore: 0
+        };
+
+        // DOM Elements
+        const levelSelection = document.getElementById('level-selection');
+        const folderSelection = document.getElementById('folder-selection');
+        const quizSection = document.getElementById('quiz-section');
+        const resultsSection = document.getElementById('results-section');
+        const foldersContainer = document.getElementById('folders-container');
+        const currentLevelTitle = document.getElementById('current-level-title');
+        const currentFolderTitle = document.getElementById('current-folder-title');
+        const questionContainer = document.getElementById('question-container');
+        const questionNumber = document.getElementById('question-number');
+        const questionCategory = document.getElementById('question-category');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const nextBtn = document.getElementById('next-btn');
+        const quizProgress = document.getElementById('quiz-progress');
+        const resultsFolderTitle = document.getElementById('results-folder-title');
+        const scorePercentage = document.getElementById('score-percentage');
+        const scoreText = document.getElementById('score-text');
+        const mistakesContainer = document.getElementById('mistakes-container');
+        const scoreCircle = document.getElementById('score-circle');
+        const userScoreElement = document.getElementById('user-score');
+        const resetBtn = document.getElementById('reset-btn');
+
+        // Level Cards
+        const levelCards = document.querySelectorAll('.level-card');
+        levelCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const level = card.getAttribute('data-level');
+                selectLevel(level);
+            });
+        });
+
+        // Back Buttons
+        document.getElementById('back-to-levels').addEventListener('click', () => {
+            showLevelSelection();
+        });
+
+        document.getElementById('back-to-folders').addEventListener('click', () => {
+            showFolderSelection();
+        });
+
+        // Results Actions
+        document.getElementById('retry-quiz').addEventListener('click', () => {
+            startQuiz(state.currentLevel, state.currentFolder);
+        });
+
+        document.getElementById('new-folder').addEventListener('click', () => {
+            showFolderSelection();
+        });
+
+        document.getElementById('new-level').addEventListener('click', () => {
+            showLevelSelection();
+        });
+
+        // Reset Button
+        resetBtn.addEventListener('click', () => {
+            state.userScore = 0;
+            updateUserScore();
+            localStorage.removeItem('frenchQuizScore');
+        });
+
+        // Next Button
+        nextBtn.addEventListener('click', () => {
+            if (state.currentQuestionIndex < state.currentQuestions.length - 1) {
+                state.currentQuestionIndex++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        });
+
+        // Functions
+        function selectLevel(level) {
+            state.currentLevel = level;
+            
+            // Set level title
+            let levelName = '';
+            switch(level) {
+                case 'debutant': levelName = 'Débutant'; break;
+                case 'elementaire': levelName = 'Élémentaire'; break;
+                case 'intermediaire': levelName = 'Intermédiaire'; break;
+                case 'avance': levelName = 'Avancé'; break;
+            }
+            currentLevelTitle.textContent = `Niveau ${levelName}`;
+            
+            // Clear folders container
+            foldersContainer.innerHTML = '';
+            
+            // Add folders for this level
+            const folders = Object.keys(quizDatabase[level]);
+            const colors = ['blue', 'green', 'yellow', 'purple', 'indigo', 'pink', 'red', 'teal'];
+            
+            folders.forEach((folder, index) => {
+                const folderCard = document.createElement('div');
+                folderCard.className = `folder-card bg-${colors[index]}-100 rounded-lg shadow p-6 cursor-pointer transition`;
+                folderCard.innerHTML = `
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-folder text-${colors[index]}-600 text-2xl mr-3"></i>
+                        <h3 class="text-lg font-semibold text-${colors[index]}-800">${folder}</h3>
+                    </div>
+                    <p class="text-sm text-${colors[index]}-600">8 questions</p>
+                `;
+                folderCard.addEventListener('click', () => {
+                    startQuiz(level, folder);
+                });
+                foldersContainer.appendChild(folderCard);
+            });
+            
+            showFolderSelection();
+        }
+
+        function startQuiz(level, folder) {
+            state.currentLevel = level;
+            state.currentFolder = folder;
+            state.currentQuestions = [...quizDatabase[level][folder]];
+            state.currentQuestionIndex = 0;
+            state.score = 0;
+            state.mistakes = [];
+            
+            // Shuffle questions
+            shuffleArray(state.currentQuestions);
+            
+            currentFolderTitle.textContent = folder;
+            showQuiz();
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = state.currentQuestions[state.currentQuestionIndex];
+            
+            // Update progress
+            const progress = ((state.currentQuestionIndex) / state.currentQuestions.length) * 100;
+            quizProgress.style.width = `${progress}%`;
+            
+            // Set question info
+            questionNumber.textContent = `Question ${state.currentQuestionIndex + 1}/${state.currentQuestions.length}`;
+            questionCategory.textContent = question.category;
+            questionText.textContent = question.question;
+            
+            // Clear options
+            optionsContainer.innerHTML = '';
+            
+            // Add options
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option bg-white border-2 border-gray-200 rounded-lg p-4 cursor-pointer transition';
+                optionElement.innerHTML = `
+                    <div class="flex items-center">
+                        <div class="w-6 h-6 rounded-full border-2 border-gray-300 mr-3 flex items-center justify-center">
+                            <span class="text-sm font-medium">${String.fromCharCode(65 + index)}</span>
+                        </div>
+                        <span>${option.text}</span>
+                    </div>
+                `;
+                
+                optionElement.addEventListener('click', () => {
+                    if (optionElement.classList.contains('selected')) return;
+                    
+                    // Remove selected class from all options
+                    document.querySelectorAll('.option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Add selected class to clicked option
+                    optionElement.classList.add('selected');
+                    
+                    // Check if correct
+                    if (option.correct) {
+                        optionElement.classList.add('correct');
+                    } else {
+                        optionElement.classList.add('incorrect');
+                        // Find and highlight the correct answer
+                        const correctOption = question.options.find(opt => opt.correct);
+                        const correctIndex = question.options.indexOf(correctOption);
+                        document.querySelectorAll('.option')[correctIndex].classList.add('correct');
+                        
+                        // Record mistake
+                        state.mistakes.push({
+                            question: question.question,
+                            userAnswer: option.text,
+                            correctAnswer: correctOption.text,
+                            explanation: option.explanation || correctOption.explanation || "Aucune explication disponible."
+                        });
+                    }
+                    
+                    // Enable next button
+                    nextBtn.disabled = false;
+                });
+                
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            // Disable next button until an option is selected
+            nextBtn.disabled = true;
+        }
+
+        function showResults() {
+            // Calculate score
+            state.score = state.currentQuestions.length - state.mistakes.length;
+            const percentage = Math.round((state.score / state.currentQuestions.length) * 100);
+            
+            // Update user's total score
+            state.userScore += state.score;
+            updateUserScore();
+            saveScoreToLocalStorage();
+            
+            // Update UI
+            resultsFolderTitle.textContent = `Dossier: ${state.currentFolder}`;
+            scorePercentage.textContent = `${percentage}%`;
+            scoreText.textContent = `${state.score}/${state.currentQuestions.length} réponses correctes`;
+            
+            // Animate circle
+            const circumference = 2 * Math.PI * 40;
+            const offset = circumference - (percentage / 100) * circumference;
+            scoreCircle.style.strokeDashoffset = offset;
+            
+            // Show mistakes
+            mistakesContainer.innerHTML = '';
+            if (state.mistakes.length > 0) {
+                state.mistakes.forEach((mistake, index) => {
+                    const mistakeElement = document.createElement('div');
+                    mistakeElement.className = 'mb-4 border-b border-gray-200 pb-4 last:border-0 last:pb-0';
+                    mistakeElement.innerHTML = `
+                        <div class="flex items-start mb-2">
+                            <div class="bg-red-100 text-red-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                                <i class="fas fa-times text-xs"></i>
+                            </div>
+                            <p class="font-medium">${index + 1}. ${mistake.question}</p>
+                        </div>
+                        <div class="ml-9 mb-2">
+                            <p><span class="font-medium">Votre réponse:</span> <span class="text-red-600">${mistake.userAnswer}</span></p>
+                            <p><span class="font-medium">Réponse correcte:</span> <span class="text-green-600">${mistake.correctAnswer}</span></p>
+                        </div>
+                        <button class="explanation-toggle ml-9 text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center">
+                            <i class="fas fa-chevron-down mr-1 text-xs"></i> Voir l'explication
+                        </button>
+                        <div class="explanation ml-9 mt-2 pl-4 border-l-2 border-gray-200">
+                            <p class="text-gray-700">${mistake.explanation}</p>
+                        </div>
+                    `;
+                    
+                    mistakesContainer.appendChild(mistakeElement);
+                });
+                
+                // Add event listeners for explanation toggles
+                document.querySelectorAll('.explanation-toggle').forEach(toggle => {
+                    toggle.addEventListener('click', () => {
+                        const explanation = toggle.nextElementSibling;
+                        explanation.classList.toggle('active');
+                        
+                        const icon = toggle.querySelector('i');
+                        if (explanation.classList.contains('active')) {
+                            icon.classList.remove('fa-chevron-down');
+                            icon.classList.add('fa-chevron-up');
+                        } else {
+                            icon.classList.remove('fa-chevron-up');
+                            icon.classList.add('fa-chevron-down');
+                        }
+                    });
+                });
+            } else {
+                mistakesContainer.innerHTML = `
+                    <div class="text-center py-6">
+                        <i class="fas fa-check-circle text-green-500 text-5xl mb-4"></i>
+                        <p class="text-xl font-medium text-gray-700">Félicitations! Vous n'avez fait aucune erreur.</p>
+                    </div>
+                `;
+            }
+            
+            showResultsSection();
+        }
+
+        function showLevelSelection() {
+            levelSelection.classList.remove('hidden');
+            folderSelection.classList.add('hidden');
+            quizSection.classList.add('hidden');
+            resultsSection.classList.add('hidden');
+        }
+
+        function showFolderSelection() {
+            levelSelection.classList.add('hidden');
+            folderSelection.classList.remove('hidden');
+            quizSection.classList.add('hidden');
+            resultsSection.classList.add('hidden');
+        }
+
+        function showQuiz() {
+            levelSelection.classList.add('hidden');
+            folderSelection.classList.add('hidden');
+            quizSection.classList.remove('hidden');
+            resultsSection.classList.add('hidden');
+        }
+
+        function showResultsSection() {
+            levelSelection.classList.add('hidden');
+            folderSelection.classList.add('hidden');
+            quizSection.classList.add('hidden');
+            resultsSection.classList.remove('hidden');
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function updateUserScore() {
+            userScoreElement.textContent = `${state.userScore} pts`;
+        }
+
+        function saveScoreToLocalStorage() {
+            const savedScore = localStorage.getItem('frenchQuizScore');
+            let totalScore = state.userScore;
+            
+            if (savedScore) {
+                totalScore = parseInt(savedScore) + state.score;
+            }
+            
+            localStorage.setItem('frenchQuizScore', totalScore.toString());
+        }
+
+        function loadScoreFromLocalStorage() {
+            const savedScore = localStorage.getItem('frenchQuizScore');
+            if (savedScore) {
+                state.userScore = parseInt(savedScore);
+                updateUserScore();
+            }
+        }
+
+        // Initialize
+        loadScoreFromLocalStorage();
+    </script>
+</body>
+</html>
