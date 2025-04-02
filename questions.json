@@ -1,0 +1,192 @@
+{
+    "debutant": {
+      "Grammaire de base": [
+        {
+          "question": "Quelle est la terminaison correcte pour le verbe 'parler' à la 1ère personne du singulier au présent?",
+          "options": [
+            {
+              "text": "e",
+              "correct": true,
+              "explanation": "À la 1ère personne du singulier, les verbes du 1er groupe (comme 'parler') se terminent par 'e'. Ex: je parle."
+            },
+            {
+              "text": "es",
+              "correct": false,
+              "explanation": "'es' est la terminaison pour la 2ème personne du singulier (tu parles)."
+            },
+            {
+              "text": "ons",
+              "correct": false,
+              "explanation": "'ons' est la terminaison pour la 1ère personne du pluriel (nous parlons)."
+            },
+            {
+              "text": "ez",
+              "correct": false,
+              "explanation": "'ez' est la terminaison pour la 2ème personne du pluriel (vous parlez)."
+            }
+          ],
+          "category": "Conjugaison"
+        },
+        {
+          "question": "Quel article défini faut-il utiliser avec 'école'?",
+          "options": [
+            {
+              "text": "le",
+              "correct": false,
+              "explanation": "'le' est l'article masculin singulier, mais 'école' est féminin."
+            },
+            {
+              "text": "la",
+              "correct": true,
+              "explanation": "'école' est un nom féminin, donc on utilise 'la'."
+            },
+            {
+              "text": "les",
+              "correct": false,
+              "explanation": "'les' est l'article pluriel, mais ici on parle d'une école en général."
+            },
+            {
+              "text": "l'",
+              "correct": false,
+              "explanation": "On utilise 'l'' devant un nom commençant par une voyelle ou un h muet, ce qui n'est pas le cas ici."
+            }
+          ],
+          "category": "Articles"
+        }
+      ],
+      "Vocabulaire quotidien": [
+        {
+          "question": "Comment dit-on 'apple' en français?",
+          "options": [
+            {
+              "text": "banane",
+              "correct": false,
+              "explanation": "Une banane est 'banana' en anglais."
+            },
+            {
+              "text": "pomme",
+              "correct": true,
+              "explanation": "Correct! 'Apple' se traduit par 'pomme' en français."
+            },
+            {
+              "text": "orange",
+              "correct": false,
+              "explanation": "Une orange est 'orange' en anglais."
+            },
+            {
+              "text": "raisin",
+              "correct": false,
+              "explanation": "Le raisin est 'grape' en anglais."
+            }
+          ],
+          "category": "Fruits"
+        }
+      ],
+      "Phrases utiles": [
+        {
+          "question": "Comment dit-on 'How are you?' en français?",
+          "options": [
+            {
+              "text": "Qui êtes-vous?",
+              "correct": false,
+              "explanation": "Cela signifie 'Who are you?'"
+            },
+            {
+              "text": "Comment allez-vous?",
+              "correct": true,
+              "explanation": "C'est la traduction correcte de 'How are you?'"
+            },
+            {
+              "text": "Quel âge avez-vous?",
+              "correct": false,
+              "explanation": "Cela signifie 'How old are you?'"
+            },
+            {
+              "text": "Où habitez-vous?",
+              "correct": false,
+              "explanation": "Cela signifie 'Where do you live?'"
+            }
+          ],
+          "category": "Expressions"
+        }
+      ]
+    },
+    "elementaire": {
+      "Passé composé": [
+        {
+          "question": "Quel auxiliaire utilise-t-on avec le verbe 'aller' au passé composé?",
+          "options": [
+            {
+              "text": "avoir",
+              "correct": true,
+              "explanation": "'Aller' se conjugue avec l'auxiliaire 'avoir' au passé composé."
+            },
+            {
+              "text": "être",
+              "correct": false,
+              "explanation": "Certains verbes de mouvement utilisent 'être', mais pas 'aller'."
+            }
+          ],
+          "category": "Conjugaison"
+        }
+      ],
+      "Imparfait": [
+        {
+          "question": "Quelle est la terminaison à l'imparfait pour 'nous' avec le verbe 'finir'?",
+          "options": [
+            {
+              "text": "issions",
+              "correct": true,
+              "explanation": "Nous finissions - c'est la terminaison correcte."
+            },
+            {
+              "text": "iez",
+              "correct": false,
+              "explanation": "C'est la terminaison pour 'vous'."
+            }
+          ],
+          "category": "Conjugaison"
+        }
+      ]
+    },
+    "intermediaire": {
+      "Subjonctif": [
+        {
+          "question": "Quelle phrase utilise correctement le subjonctif?",
+          "options": [
+            {
+              "text": "Il faut que tu vas",
+              "correct": false,
+              "explanation": "Le verbe après 'il faut que' doit être au subjonctif."
+            },
+            {
+              "text": "Il faut que tu ailles",
+              "correct": true,
+              "explanation": "'Ailles' est la forme correcte du subjonctif présent du verbe 'aller'."
+            }
+          ],
+          "category": "Conjugaison"
+        }
+      ]
+    },
+    "avance": {
+      "Concordance des temps": [
+        {
+          "question": "Si elle était arrivée à l'heure, nous _____ ensemble.",
+          "options": [
+            {
+              "text": "serions partis",
+              "correct": true,
+              "explanation": "Conditionnel passé pour exprimer une hypothèse non réalisée dans le passé."
+            },
+            {
+              "text": "sommes partis",
+              "correct": false,
+              "explanation": "Le passé composé n'est pas approprié dans ce contexte hypothétique."
+            }
+          ],
+          "category": "Conjugaison"
+        }
+      ]
+    }
+  }
